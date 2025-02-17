@@ -1,0 +1,45 @@
+<section id="portfolio" class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2 class="fw-bold">{{ .Site.Data.index.portfolio.title }}</h2>
+                <p class="lead">{{ .Site.Data.index.portfolio.subtitle }} </p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="container mb-2">
+                    {{ range $tag_i, $tag := .Site.Data.index.portfolio.tags }}
+                        <div class="text-center gap-1">
+                            {{ range $btn_i, $btn := $tag.items }}
+                                <button type="button" class="btn btn-outline-primary me-2 mb-2 btn-sm btn-portfolio-tags" data-toggle=".{{ $btn.id }}" data-bs-toggle="button" aria-pressed="false">{{ $btn.name }}</button>
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <div id="portfolio-projects-container" class="row row-cols-1 row-cols-md-3">
+            {{ range $index, $project := .Site.Data.index.portfolio.projects }}
+                    <div class="col card mix {{ delimit $project.tags " " }}">
+                    {{ if $project.img }}
+                        <img src={{ $project.img.src }} class="card-img-top" alt={{ $project.img.alt }}>
+                    {{ end }}
+                    <div class="card-body">
+                        {{ if $project.title }}
+                            <h5 class="card-title">{{ $project.title }}</h5>
+                        {{ end }}
+                        {{ if $project.description }}
+                            <p class="card-text">{{ $project.description }}</p>
+                        {{ end }}
+                    </div>
+                    {{ if $project.footer }}
+                        <div class="card-footer">
+                            <small class="text-body-secondary">{{ $project.footer | safeHTML }}</small>
+                        </div>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</section>

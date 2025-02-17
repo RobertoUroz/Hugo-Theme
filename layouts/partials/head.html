@@ -1,0 +1,16 @@
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+<title>{{ .Site.Data.index.head.title }}</title>
+
+
+{{ range $index, $icon := .Site.Data.index.head.icons }}
+    <link rel="{{ $icon.rel }}" type="{{ $icon.type }}" sizes="{{ $icon.sizes }}" href="{{ $icon.href }}">
+{{ end }}
+
+<link rel="manifest" href="/site.webmanifest">  <meta name="msapplication-TileColor" content="#297bff"> <meta name="theme-color" content="#FFFFFF">
+
+<link rel="stylesheet" href="{{ "css/bootstrap.min.css" | absURL }}"/>
+<link rel="stylesheet" href="{{ "css/aos.min.css" | absURL }}"/>
+<link rel="stylesheet" href="{{ "css/timeline.css" | absURL }}"/>
