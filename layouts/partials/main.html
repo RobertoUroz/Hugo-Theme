@@ -1,10 +1,9 @@
 <section class="align-items-center d-flex justify-content-center flex-column text-center position-relative" style="height: 90vh">
-    <div class="">
-        <h1>Roberto <span style="color: #297BFF">Uroz</span></h1>
+    <div>
+        {{ .Site.Data.index.main.title | safeHTML }}
     </div>
     <div class="text-center px-3">
-        <span style="color: #297BFF">Full-Stack Developer</span> focusing on building meaningful solutions,<br />
-        shipping robust code, and making people’s lives easier along the way.
+        {{ .Site.Data.index.main.subtitle | safeHTML }}
     </div>
 
     <div class="position-absolute start-50 bottom-0 translate-middle-x text-decoration-none">
